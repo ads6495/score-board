@@ -9,9 +9,20 @@ const main = () => {
   console.log('Hello, World!')
 }
 
+const restartButton = () => {
+  document.querySelector = '.reset-button'
+  team2Add.disabled = false
+  team2Subtract1Button.disabled = false
+  updateTeam2Name.disabled = false
+  team1Add.disabled = false
+  team1Subtract1Button.disabled = false
+  updateTeam1Name.disabled = false
+  // document.querySelector('.team-1-name').textContent = 'team 1'
+}
+
 //selected "update" button
-const team1Input = document.querySelector('.team-1-input').value
-const team2Input = document.querySelector('.team-2-input').value
+const team1Input = document.querySelector('.team-1-input')
+const team2Input = document.querySelector('.team-2-input')
 
 // selected "team 1" h2 at top
 let team1Name = document.querySelector('.team-1-name')
@@ -23,6 +34,8 @@ const updateTeam2Name = document.querySelector('.update-team-2-name')
 const team1Add = document.querySelector('.team-1-add-1-button')
 const team2Add = document.querySelector('.team-2-add-1-button')
 //subtract one
+const team1Subtract1Button = document.querySelector('.team-1-subtract-1-button')
+const team2Subtract1Button = document.querySelector('.team-2-subtract-1-button')
 
 // select team 1 score
 let team1Score = document.querySelector('.team-1-score')
@@ -36,8 +49,14 @@ const add1ToTeam1Score = () => {
   // update the html
   document.querySelector('.team-1-score').textContent = newScore
 
-  if (newScore > 21) {
-    document.querySelector('.team-1-score').textContent = 21
+  if (parseInt(newScore) === 21) {
+    document.querySelector('.team-1-score').textContent = 'you win!!'
+    team1Add.disabled = true
+    team1Subtract1Button.disabled = true
+    updateTeam1Name.disabled = true
+    team2Add.disabled = true
+    team2Subtract1Button.disabled = true
+    updateTeam2Name.disabled = true
   } else {
     document.querySelector('.team-1-score').textContent = newScore
   }
@@ -48,8 +67,14 @@ const add1toTeam2score = () => {
   const newScore = parseInt(currentScore) + 1
   document.querySelector('.team-2-score').textContent = newScore
 
-  if (newScore > 21) {
-    document.querySelector('.team-2-score').textContent = 21
+  if (parseInt(newScore) === 21) {
+    document.querySelector('.team-2-score').textContent = 'you win!!'
+    team2Add.disabled = true
+    team2Subtract1Button.disabled = true
+    updateTeam2Name.disabled = true
+    team1Add.disabled = true
+    team1Subtract1Button.disabled = true
+    updateTeam1Name.disabled = true
   } else {
     document.querySelector('.team-2-score').textContent = newScore
   }
@@ -81,6 +106,7 @@ const subtract1ToTeam2Score = () => {
 
 const newTeam1Name = () => {
   team1Name.innerHTML = team1Input.value
+  console.log(team1Input.value)
 }
 updateTeam1Name.addEventListener('click', newTeam1Name)
 
@@ -105,5 +131,7 @@ document
 document
   .querySelector('.team-2-subtract-1-button')
   .addEventListener('click', subtract1ToTeam2Score)
+
+document.querySelector('.reset-button').addEventListener('click', restartButton)
 
 document.addEventListener('DOMContentLoaded', main)
