@@ -10,8 +10,9 @@ const main = () => {
 }
 
 //selected "update" button
-const team1Input = document.querySelector('.team-1-input')
-const team2Input = document.querySelector('.team-2-input')
+const team1Input = document.querySelector('.team-1-input').value
+const team2Input = document.querySelector('.team-2-input').value
+
 // selected "team 1" h2 at top
 let team1Name = document.querySelector('.team-1-name')
 let team2Name = document.querySelector('.team-2-name')
@@ -34,24 +35,48 @@ const add1ToTeam1Score = () => {
   const newScore = parseInt(currentScore) + 1
   // update the html
   document.querySelector('.team-1-score').textContent = newScore
+
+  if (newScore > 21) {
+    document.querySelector('.team-1-score').textContent = 21
+  } else {
+    document.querySelector('.team-1-score').textContent = newScore
+  }
 }
 
 const add1toTeam2score = () => {
   const currentScore = document.querySelector('.team-2-score').textContent
   const newScore = parseInt(currentScore) + 1
   document.querySelector('.team-2-score').textContent = newScore
+
+  if (newScore > 21) {
+    document.querySelector('.team-2-score').textContent = 21
+  } else {
+    document.querySelector('.team-2-score').textContent = newScore
+  }
 }
 
 const subtract1ToTeam1Score = () => {
   const currentScore = document.querySelector('.team-1-score').textContent
   const newScore = parseInt(currentScore) - 1
   document.querySelector('.team-1-score').textContent = newScore
+
+  if (newScore < 0) {
+    document.querySelector('.team-1-score').textContent = 0
+  } else {
+    document.querySelector('.team-1-score').textContent = newScore
+  }
 }
 
 const subtract1ToTeam2Score = () => {
   const currentScore = document.querySelector('.team-2-score').textContent
   const newScore = parseInt(currentScore) - 1
   document.querySelector('.team-2-score').textContent = newScore
+
+  if (newScore < 0) {
+    document.querySelector('.team-2-score').textContent = 0
+  } else {
+    document.querySelector('.team-2-score').textContent = newScore
+  }
 }
 
 const newTeam1Name = () => {
