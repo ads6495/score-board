@@ -9,21 +9,6 @@ const main = () => {
   console.log('Hello, World!')
 }
 
-const restartButton = () => {
-  document.querySelector('.team-1-score').textContent = 0
-  document.querySelector('.team-2-score').textContent = 0
-  document.querySelector('.team-1-name').textContent = 'Team 1'
-  document.querySelector('.team-2-name').textContent = 'Team 2'
-  document.querySelector('.update-team-1-name').disabled = false
-  document.querySelector('.team-1-add-1-button').disabled = false
-  document.querySelector('.team-1-subtract-1-button').disabled = false
-  document.querySelector('.update-team-2-name').disabled = false
-  document.querySelector('.team-2-add-1-button').disabled = false
-  document.querySelector('.team-2-subtract-1-button').disabled = false
-  document.querySelector('.reset-button').classList.add('hide')
-  document.querySelector('.team-1-name').classList.remove('you-win')
-}
-
 //selected "update" button
 const team1Input = document.querySelector('.team-1-input')
 const team2Input = document.querySelector('.team-2-input')
@@ -44,6 +29,21 @@ const team2Subtract1Button = document.querySelector('.team-2-subtract-1-button')
 // select team 1 score
 let team1Score = document.querySelector('.team-1-score')
 let team12Score = document.querySelector('.team-2-score')
+
+const restartButton = () => {
+  document.querySelector('.team-1-score').textContent = 0
+  document.querySelector('.team-2-score').textContent = 0
+  document.querySelector('.team-1-name').textContent = 'Team 1'
+  document.querySelector('.team-2-name').textContent = 'Team 2'
+  document.querySelector('.update-team-1-name').disabled = false
+  document.querySelector('.team-1-add-1-button').disabled = false
+  document.querySelector('.team-1-subtract-1-button').disabled = false
+  document.querySelector('.update-team-2-name').disabled = false
+  document.querySelector('.team-2-add-1-button').disabled = false
+  document.querySelector('.team-2-subtract-1-button').disabled = false
+  document.querySelector('.reset-button').classList.add('hide')
+  document.querySelector('.team-1-name').classList.remove('you-win')
+}
 
 const add1ToTeam1Score = () => {
   // get the current value

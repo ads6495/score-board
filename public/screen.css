@@ -53,3 +53,8 @@ h1 {
 .hidden {
   display: none
 }
+
+.you-win {
+  background-color: blue;
+  color: red;
+}
